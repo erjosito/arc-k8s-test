@@ -125,7 +125,7 @@ metadata:
   name: web
   namespace:  sqlapi
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 80
