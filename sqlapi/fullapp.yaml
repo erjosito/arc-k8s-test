@@ -45,6 +45,11 @@ spec:
             configMapKeyRef:
               name: sqlconfig
               key: sql_engine
+        - name: SQL_SERVER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sqlsecret
+              key: sql_password
         livenessProbe:
           httpGet:
             path: /api/healthcheck
@@ -77,9 +82,16 @@ metadata:
   name: sqlconfig
   namespace:  sqlapi
 data:
-  sql_fqdn: "changeme.database.windows.net"
-  sql_user: "changeme"
-  sql_engine: "sqlserver"
+  sql_fqdn: "postgres1138.postgres.database.azure.com"
+  sql_user: "jose"
+  sql_engine: "postgres"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sqlsecret
+data:
+  sql_password: TWljcm9zb2Z0MTIzIQo=
 ---
 apiVersion: apps/v1
 kind: Deployment
