@@ -90,6 +90,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: sqlsecret
+  namespace:  sqlapi
 data:
   sql_password: TWljcm9zb2Z0MTIzIQo=
 ---
