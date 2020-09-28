@@ -67,11 +67,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sqlconfig
-  namespace:  sqlapi
+  namespace: sqlapi
 data:
-  sql_fqdn: "postgres1138.postgres.database.azure.com"
-  sql_user: "jose"
-  sql_engine: "postgres"
+  sql_fqdn: "mysqldb-svc.arcdc"
+  sql_user: "sa"
+  sql_engine: "sqlserver"
 ---
 apiVersion: v1
 kind: Secret
@@ -103,6 +103,7 @@ spec:
       containers:
       - image: erjosito/web:1.0
         imagePullPolicy: Always
+        restartPolicy: Always
         name: web
         ports:
         - containerPort: 80
@@ -117,7 +118,6 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
