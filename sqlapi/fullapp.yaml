@@ -22,6 +22,7 @@ spec:
       labels:
         run: api
     spec:
+      restartPolicy: Always
       containers:
       - image: erjosito/sqlapi:1.0
         imagePullPolicy: Always
@@ -61,7 +62,6 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-      restartPolicy: Always
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -100,10 +100,10 @@ spec:
       labels:
         run: web
     spec:
+      restartPolicy: Always
       containers:
       - image: erjosito/web:1.0
         imagePullPolicy: Always
-        restartPolicy: Always
         name: web
         ports:
         - containerPort: 80
