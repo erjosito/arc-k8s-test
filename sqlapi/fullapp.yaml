@@ -79,7 +79,7 @@ metadata:
   name: sqlsecret
   namespace:  sqlapi
 data:
-  sql_password: TWljcm9zb2Z0MTIzIQo=
+  sql_password: "TWljcm9zb2Z0MTIzIQ=="
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -117,7 +117,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-          restartPolicy: Always
+        restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
