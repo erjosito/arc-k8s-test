@@ -12,6 +12,9 @@ metadata:
   namespace: kuard
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: kuard
   strategy:
     rollingUpdate:
       maxSurge: 1
